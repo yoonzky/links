@@ -6,7 +6,7 @@ My link page: https://yoonzky.github.io/links/
 - Telegram channel: https://t.me/+OKa4pUcxoysxYzc6
 - Sudoku: https://yoonzky.github.io/sudoku/
 - Spotify: https://open.spotify.com/user/wwiwbonvna6hd55g4x2gmaz5y
-- Discord: yoonzky
+- Discord: https://discord.com/users/390727089541611530
 
 ## License
 
