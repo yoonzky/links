@@ -2,7 +2,10 @@
 
 My link page: https://yoonzky.github.io/links/
 
-Telegram channel, sudoku game, discord. Single html file, same midnight palette as the sudoku project.
+- Telegram: https://t.me/yoonzky
+- Telegram channel: https://t.me/+OKa4pUcxoysxYzc6
+- Sudoku: https://yoonzky.github.io/sudoku/
+- Discord: yoonzky
 
 ## License
 
