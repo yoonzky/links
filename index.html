@@ -43,7 +43,7 @@ main{width:100%; max-width:392px; text-align:center; position:relative; z-index:
 
 .rule{display:flex; align-items:center; justify-content:center; gap:10px; margin:16px 0 32px}
 .rule i{display:block; height:1px; width:56px; background:linear-gradient(90deg,transparent,var(--ice)); opacity:.65}
-.rule i+i{background:linear-gradient(90deg,var(--ice),transparent)}
+.rule i:last-of-type{background:linear-gradient(90deg,var(--ice),transparent)}
 .rule svg{width:11px; height:11px; fill:var(--ice); opacity:.8}
 
 
@@ -64,7 +64,7 @@ main{width:100%; max-width:392px; text-align:center; position:relative; z-index:
 .link .go{font-size:15px; color:var(--muted); opacity:0; transform:translateX(-4px); transition:opacity .18s, transform .18s}
 .link::after{
   content:""; position:absolute; inset:0; z-index:-1;
-  background:radial-gradient(ellipse 70% 130% at 50% 50%, var(--glow), transparent 72%);
+  background:radial-gradient(ellipse 62% 150% at 16% 50%, var(--glow), transparent 76%);
   opacity:0; transition:opacity .22s;
 }
 .link:hover, .link:focus-visible{color:var(--ice); padding-left:12px; outline:none}
