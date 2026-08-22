@@ -8,13 +8,16 @@
 <title>yoonzky</title>
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect width='24' height='24' rx='5.5' fill='%230d1119'/%3E%3Cpath d='M12 4.6c1.5 3.4 3.4 5.3 6.8 6.8-3.4 1.5-5.3 3.4-6.8 6.8-1.5-3.4-3.4-5.3-6.8-6.8 3.4-1.5 5.3-3.4 6.8-6.8Z' fill='%239ec1f5'/%3E%3C/svg%3E">
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Tenor+Sans&family=Onest:wght@300;400;500;600&display=swap');
 
-/* Холодная ночь: почти чёрная синь, ледяной голубой, свет сверху. Тема одна. */
+/* Холодная ночь: почти чёрная синь, ледяной голубой, свет сверху. Тема одна.
+   Значения и гарнитуры — из тёмной темы судоку, чтобы два сайта читались как один. */
 :root{
-  --bg:#0d1119; --line:#252c3d; --line-soft:#1a2130;
-  --text:#e4e9f4; --muted:#7f8aa3; --ice:#9ec1f5;
-  --halo:radial-gradient(ellipse 64% 44% at 50% 0%, rgba(158,193,245,.14), transparent 70%);
+  --f-disp:'Tenor Sans',system-ui,sans-serif;
+  --f-body:Onest,system-ui,sans-serif;
+  --bg:#0d1119; --line:#252c3d;
+  --text:#e4e9f4; --muted:#8b96af; --ice:#9ec1f5;
+  --halo:radial-gradient(ellipse 58% 34% at 50% 0%, rgba(158,193,245,.14), transparent 68%);
   --glow:rgba(158,193,245,.10);
 }
 
@@ -22,11 +25,11 @@
 html{height:100%; -webkit-text-size-adjust:100%}
 body{
   min-height:100%; margin:0; background:var(--bg); color:var(--text);
-  font-family:'Cormorant Garamond',Georgia,serif; touch-action:manipulation;
+  font-family:var(--f-body); touch-action:manipulation;
   display:flex; flex-direction:column; align-items:center; justify-content:center;
   padding:24px calc(24px + env(safe-area-inset-right)) calc(24px + env(safe-area-inset-bottom)) calc(24px + env(safe-area-inset-left));
-  -webkit-font-smoothing:antialiased;
-  font-variant-numeric:lining-nums;
+  -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
+  font-variant-numeric:lining-nums tabular-nums; font-feature-settings:'lnum' 1,'tnum' 1;
 }
 @supports (height:100dvh){ body{min-height:100dvh} }
 
@@ -35,9 +38,9 @@ body::before{content:""; position:fixed; inset:0; background:var(--halo); pointe
 main{width:100%; max-width:392px; text-align:center; position:relative; z-index:1}
 
 .mark{
-  display:inline-block; font-family:Cinzel,Georgia,serif;
-  font-size:clamp(30px,8.5vw,38px); font-weight:500;
-  letter-spacing:.22em; margin:0 0 0 .22em; line-height:1.1;
+  display:inline-block; font-family:var(--f-disp);
+  font-size:clamp(28px,7.8vw,35px); font-weight:400;
+  letter-spacing:.2em; margin:0 0 0 .2em; line-height:1.15;
   color:var(--text);
 }
 
@@ -51,14 +54,14 @@ main{width:100%; max-width:392px; text-align:center; position:relative; z-index:
 .link{
   position:relative; display:flex; align-items:baseline; gap:14px;
   padding:15px 6px 14px; text-decoration:none; color:var(--text);
-  border-top:1px solid var(--line-soft);
-  font-size:21px; font-weight:400; letter-spacing:.01em;
+  border-top:1px solid var(--line);
+  font-size:19px; font-weight:400; letter-spacing:.01em;
   transition:color .18s, padding-left .18s;
 }
-.link:last-child{border-bottom:1px solid var(--line-soft)}
+.link:last-child{border-bottom:1px solid var(--line)}
 .link .n{
-  font-family:Cinzel,Georgia,serif; font-size:11px; font-weight:400; color:var(--ice);
-  letter-spacing:.1em; flex:none; width:22px; opacity:.7; transition:opacity .18s;
+  font-family:var(--f-disp); font-size:11px; font-weight:400; color:var(--ice);
+  letter-spacing:.1em; flex:none; width:22px; opacity:.75; transition:opacity .18s;
 }
 .link .t{flex:1}
 .link .go{display:flex; align-items:center; color:var(--muted); opacity:0; transform:translateX(-4px); transition:opacity .18s, transform .18s}
@@ -75,13 +78,13 @@ main{width:100%; max-width:392px; text-align:center; position:relative; z-index:
 .link:focus-visible{box-shadow:inset 0 0 0 1px var(--ice)}
 .link:active{color:var(--ice)}
 
-footer{margin-top:32px; font-size:14px; color:var(--muted); font-style:italic; font-weight:300}
+footer{margin-top:32px; font-size:12.5px; color:var(--muted); font-weight:400; letter-spacing:.02em}
 footer a{color:var(--muted); text-decoration:none; border-bottom:1px solid var(--line); transition:color .18s, border-color .18s}
 footer a:hover{color:var(--ice); border-color:var(--ice)}
 
 @media (max-width:480px){
   body{padding:20px calc(18px + env(safe-area-inset-right)) calc(20px + env(safe-area-inset-bottom)) calc(18px + env(safe-area-inset-left))}
-  .link{font-size:20px; padding:16px 4px}
+  .link{font-size:18px; padding:16px 4px}
   footer{margin-top:26px}
 }
 @media (max-height:600px){
