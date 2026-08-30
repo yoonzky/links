@@ -39,12 +39,8 @@
   --f-num:Lora,Georgia,serif;
 
   color-scheme:dark;
-  --bg:#0b0d14; --panel:#151824; --panel2:#1b1f30; --line:#252a3b;
-  --text:#e6e9f5; --muted:#8c93ab; --accent:#a6b4f0;
-  --accent-soft:rgba(166,180,240,.20);
+  --bg:#0b0d14; --line:#252a3b; --text:#e6e9f5; --muted:#8c93ab; --accent:#a6b4f0;
   --halo:radial-gradient(ellipse 62% 40% at 50% -2%, rgba(166,180,240,.16), transparent 72%);
-  --tick:rgba(201,212,234,.62);
-  --shadow:0 18px 44px rgba(0,0,0,.5);
 }
 
 *{box-sizing:border-box; -webkit-tap-highlight-color:transparent}
@@ -52,8 +48,8 @@ html{height:100%; -webkit-text-size-adjust:100%}
 body{
   min-height:100%; margin:0; background:var(--bg); color:var(--text);
   font-family:var(--f-body); touch-action:manipulation;
-  display:flex; flex-direction:column; align-items:center; justify-content:center;
-  padding:28px calc(20px + env(safe-area-inset-right)) calc(24px + env(safe-area-inset-bottom)) calc(20px + env(safe-area-inset-left));
+  display:flex; align-items:center; justify-content:center;
+  padding:32px calc(24px + env(safe-area-inset-right)) calc(28px + env(safe-area-inset-bottom)) calc(24px + env(safe-area-inset-left));
   -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
   font-variant-numeric:lining-nums tabular-nums; font-feature-settings:'lnum' 1,'tnum' 1;
 }
@@ -61,108 +57,61 @@ body{
 
 /* свет сверху — единственный источник на странице */
 body::before{content:""; position:fixed; inset:0; background:var(--halo); pointer-events:none; z-index:0}
-main{width:100%; max-width:604px; position:relative; z-index:1}
+main{position:relative; z-index:1; width:100%; max-width:900px;
+  display:grid; grid-template-columns:1fr 1fr; gap:0 60px; align-items:center}
 
-header{text-align:center; margin:0 0 30px}
-h1{font-family:var(--f-disp); font-size:clamp(29px,7.4vw,36px); font-weight:400;
-  letter-spacing:.2em; margin:0 0 0 .2em; line-height:1.15}
-.tagline{margin:7px 0 0; font-family:var(--f-disp); font-size:10.5px; letter-spacing:.16em;
-  text-transform:uppercase; color:var(--muted)}
-
-/* засечки по углам вместо рамки — приём с игрового поля */
-.wrap{position:relative; padding:14px}
-.wrap::before{content:""; position:absolute; inset:0; pointer-events:none; background:
-  linear-gradient(var(--tick),var(--tick)) left top/13px 2px no-repeat,
-  linear-gradient(var(--tick),var(--tick)) left top 2px/2px 11px no-repeat,
-  linear-gradient(var(--tick),var(--tick)) right top/13px 2px no-repeat,
-  linear-gradient(var(--tick),var(--tick)) right top 2px/2px 11px no-repeat,
-  linear-gradient(var(--tick),var(--tick)) left bottom/13px 2px no-repeat,
-  linear-gradient(var(--tick),var(--tick)) left bottom 2px/2px 11px no-repeat,
-  linear-gradient(var(--tick),var(--tick)) right bottom/13px 2px no-repeat,
-  linear-gradient(var(--tick),var(--tick)) right bottom 2px/2px 11px no-repeat}
-
-.grid{display:grid; grid-template-columns:repeat(3,1fr); gap:8px}
-@media (max-width:560px){ .grid{grid-template-columns:repeat(2,1fr)} }
-
-.card{
-  position:relative; display:flex; flex-direction:column; gap:9px;
-  padding:15px 14px 14px; text-decoration:none; color:var(--text);
-  background:var(--panel); border:1px solid var(--line); border-radius:4px;
-  transition:border-color .16s, background .16s, color .16s, transform .16s;
-}
-.card:hover{border-color:var(--accent); color:var(--accent); transform:translateY(-1px)}
-.card:active{background:var(--accent-soft)}
-.card:focus-visible{outline:2px solid var(--accent); outline-offset:2px}
-
-.card .ic{width:24px; height:24px; stroke:currentColor; fill:none;
-  stroke-width:1.2; stroke-linecap:square; stroke-linejoin:miter; color:var(--muted);
-  transition:color .16s}
-.card:hover .ic{color:var(--accent)}
-.card b{font-size:13.5px; font-weight:400; letter-spacing:.01em; line-height:1.2}
-.card small{font-size:10.5px; color:var(--muted); line-height:1.3}
-.card .go{position:absolute; top:13px; right:12px; width:13px; height:13px;
-  stroke:currentColor; fill:none; stroke-width:1.2; stroke-linecap:square; stroke-linejoin:miter;
-  opacity:0; transform:translate(-3px,3px); transition:opacity .16s, transform .16s}
-.card:hover .go, .card:focus-visible .go{opacity:.9; transform:none}
-
-footer{margin-top:26px; text-align:center; font-size:11.5px; color:var(--muted)}
-footer .y{font-family:var(--f-num)}
-footer a{color:var(--muted); text-decoration:none; border-bottom:1px solid var(--line);
+h1{font-family:var(--f-disp); font-size:clamp(38px,6vw,62px); font-weight:400;
+  letter-spacing:.14em; margin:0; line-height:1.1}
+.about{margin:18px 0 0; font-size:13px; color:var(--muted); line-height:1.7}
+.meta{margin:26px 0 0; font-size:11.5px; color:var(--muted)}
+.meta .y{font-family:var(--f-num)}
+.meta a{color:var(--muted); text-decoration:none; border-bottom:1px solid var(--line);
   transition:color .18s, border-color .18s}
-footer a:hover{color:var(--accent); border-bottom-color:var(--accent)}
+.meta a:hover{color:var(--accent); border-bottom-color:var(--accent)}
 
-@media (max-width:560px){
-  header{margin-bottom:24px}
-  .card{padding:14px 12px 13px}
-  footer{margin-top:20px}
+.list{display:flex; flex-direction:column}
+.big{display:flex; align-items:baseline; gap:14px; padding:12px 0;
+  border-bottom:1px solid var(--line); text-decoration:none; color:var(--text);
+  font-family:var(--f-disp); font-size:26px; letter-spacing:.02em;
+  transition:color .18s, padding-left .18s}
+.big:first-child{border-top:1px solid var(--line)}
+.big .hd{margin-left:auto; font-family:var(--f-body); font-size:11px; color:var(--muted);
+  opacity:0; transform:translateX(-6px); transition:opacity .18s, transform .18s}
+.big:hover, .big:focus-visible{color:var(--accent); padding-left:12px; outline:none}
+.big:hover .hd, .big:focus-visible .hd{opacity:1; transform:none; color:var(--accent)}
+.big:focus-visible{outline:2px solid var(--accent); outline-offset:2px; border-radius:4px}
+
+@media (max-width:760px){
+  body{padding-top:calc(40px + env(safe-area-inset-top))}
+  main{grid-template-columns:1fr; gap:26px; max-width:440px}
+  h1{font-size:clamp(30px,9vw,38px); letter-spacing:.16em}
+  .about{margin-top:12px; font-size:12.5px}
+  .meta{margin-top:16px}
+  .big{font-size:21px; padding:11px 0}
+  .big .hd{opacity:.75; transform:none}
 }
-@media (max-height:620px){ body{justify-content:flex-start} }
+@media (max-width:360px){ .big{font-size:19px} }
+/* низкий экран: страница прокручивается, а не жмётся */
+@media (max-height:620px){ body{align-items:flex-start} }
 @media (prefers-reduced-motion:reduce){ *{transition:none !important} }
 </style>
 </head>
 <body>
 <main>
-  <header>
+  <div class="side">
     <h1>yoonzky</h1>
-    <p class="tagline">where to find me</p>
-  </header>
-
-  <div class="wrap">
-    <nav class="grid">
-    <a class="card" href="https://t.me/yoonzky" target="_blank" rel="noopener">
-      <svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M21.4 4.2 2.9 11.1l5.3 2M21.4 4.2l-3.1 15.6-6.2-4.6M8.2 13.1l13.2-8.9M8.2 13.1v5.6l3.9-3.5"/></svg>
-      <span><b>Telegram</b><small style="display:block;margin-top:3px">@yoonzky</small></span>
-      <svg class="go" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg>
-    </a>
-    <a class="card" href="https://t.me/+OKa4pUcxoysxYzc6" target="_blank" rel="noopener">
-      <svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4.4 9.6h3.2l8-4.4v13.6l-8-4.4H4.4Z"/><path d="M19.2 8.4a5.2 5.2 0 0 1 0 7.2"/><path d="M7.6 14.4v4.4h3.2"/></svg>
-      <span><b>Telegram channel</b><small style="display:block;margin-top:3px">invite</small></span>
-      <svg class="go" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg>
-    </a>
-    <a class="card" href="https://www.instagram.com/younzky/" target="_blank" rel="noopener">
-      <svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><rect x="3.6" y="3.6" width="16.8" height="16.8" rx="4"/><circle cx="12" cy="12" r="4.1"/><path d="M16.7 6.9h.4"/></svg>
-      <span><b>Instagram</b><small style="display:block;margin-top:3px">@younzky</small></span>
-      <svg class="go" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg>
-    </a>
-    <a class="card" href="https://yoonzky.github.io/sudoku/" target="_blank" rel="noopener">
-      <svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><rect x="3.6" y="3.6" width="16.8" height="16.8"/><path d="M9.2 3.6v16.8M14.8 3.6v16.8M3.6 9.2h16.8M3.6 14.8h16.8"/></svg>
-      <span><b>Sudoku</b><small style="display:block;margin-top:3px">eighteen modes</small></span>
-      <svg class="go" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg>
-    </a>
-    <a class="card" href="https://open.spotify.com/user/wwiwbonvna6hd55g4x2gmaz5y" target="_blank" rel="noopener">
-      <svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.6"/><path d="M7.6 9.4c3-.8 6-.5 8.6 1M8.2 12.6c2.4-.6 4.8-.4 6.9.9M8.9 15.6c1.9-.4 3.7-.3 5.3.7"/></svg>
-      <span><b>Spotify</b><small style="display:block;margin-top:3px">profile</small></span>
-      <svg class="go" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg>
-    </a>
-    <a class="card" href="https://discord.com/users/390727089541611530" target="_blank" rel="noopener">
-      <svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.6 6.4a13 13 0 0 1 6.8 0c2 1.6 3.4 4.1 3.6 7.1l.1 2.1-3.5 2.2-1.2-2a11 11 0 0 1-4.8 0l-1.2 2L4.9 15.6 5 13.5c.2-3 1.6-5.5 3.6-7.1Z" stroke-linejoin="round"/><circle cx="9.7" cy="13.2" r="1.15"/><circle cx="14.3" cy="13.2" r="1.15"/></svg>
-      <span><b>Discord</b><small style="display:block;margin-top:3px">profile</small></span>
-      <svg class="go" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg>
-    </a>
-    </nav>
+    <p class="about">Sudoku, music, messages.</p>
+    <p class="meta"><span class="y">2026</span> · <a href="https://github.com/yoonzky/links" target="_blank" rel="noopener">yoonzky</a></p>
   </div>
 
-  <footer><span class="y">2026</span> · <a href="https://github.com/yoonzky/links" target="_blank" rel="noopener">yoonzky</a></footer>
+  <nav class="list">
+    <a class="big" href="https://t.me/yoonzky" target="_blank" rel="noopener">Telegram<span class="hd">@yoonzky</span></a>
+    <a class="big" href="https://t.me/+OKa4pUcxoysxYzc6" target="_blank" rel="noopener">Telegram channel<span class="hd">invite</span></a>
+    <a class="big" href="https://www.instagram.com/younzky/" target="_blank" rel="noopener">Instagram<span class="hd">@younzky</span></a>
+    <a class="big" href="https://yoonzky.github.io/sudoku/" target="_blank" rel="noopener">Sudoku<span class="hd">eighteen modes</span></a>
+    <a class="big" href="https://open.spotify.com/user/wwiwbonvna6hd55g4x2gmaz5y" target="_blank" rel="noopener">Spotify<span class="hd">profile</span></a>
+    <a class="big" href="https://discord.com/users/390727089541611530" target="_blank" rel="noopener">Discord<span class="hd">profile</span></a>
+  </nav>
 </main>
 </body>
 </html>
