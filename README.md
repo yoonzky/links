@@ -1,6 +1,6 @@
 # links
 
-My link page: https://yoonzky.github.io/links/
+My links: https://yoonzky.github.io/links/
 
 ## License
 
