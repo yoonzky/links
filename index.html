@@ -3,70 +3,108 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<meta name="theme-color" content="#141416">
-<meta name="apple-mobile-web-app-title" content="yoonzky">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#eceef2" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#131417" media="(prefers-color-scheme: dark)">
 <title>yoonzky</title>
-<meta name="description" content="Links: Telegram, channel, Instagram, Yoondoku, Spotify, Letterboxd, Discord.">
-<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%2064%2064%27%3E%3Crect%20width%3D%2764%27%20height%3D%2764%27%20rx%3D%274%27%20fill%3D%27%23141416%27%2F%3E%3Cpath%20d%3D%27M27%2037%2037%2027%27%20stroke%3D%27%234b9bff%27%20stroke-width%3D%274.5%27%20stroke-linecap%3D%27square%27%2F%3E%3Cpath%20d%3D%27M35%2020l4-4a8.5%208.5%200%200%201%2012%2012l-4%204%27%20stroke%3D%27%234b9bff%27%20stroke-width%3D%274.5%27%20fill%3D%27none%27%20stroke-linecap%3D%27square%27%2F%3E%3Cpath%20d%3D%27M29%2044l-4%204a8.5%208.5%200%200%201-12-12l4-4%27%20stroke%3D%27%234b9bff%27%20stroke-width%3D%274.5%27%20fill%3D%27none%27%20stroke-linecap%3D%27square%27%2F%3E%3C%2Fsvg%3E" media="(prefers-color-scheme: dark)">
-<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%2064%2064%27%3E%3Crect%20width%3D%2764%27%20height%3D%2764%27%20rx%3D%274%27%20fill%3D%27%23f2f2f7%27%2F%3E%3Cpath%20d%3D%27M27%2037%2037%2027%27%20stroke%3D%27%230a6fe8%27%20stroke-width%3D%274.5%27%20stroke-linecap%3D%27square%27%2F%3E%3Cpath%20d%3D%27M35%2020l4-4a8.5%208.5%200%200%201%2012%2012l-4%204%27%20stroke%3D%27%230a6fe8%27%20stroke-width%3D%274.5%27%20fill%3D%27none%27%20stroke-linecap%3D%27square%27%2F%3E%3Cpath%20d%3D%27M29%2044l-4%204a8.5%208.5%200%200%201-12-12l4-4%27%20stroke%3D%27%230a6fe8%27%20stroke-width%3D%274.5%27%20fill%3D%27none%27%20stroke-linecap%3D%27square%27%2F%3E%3C%2Fsvg%3E" media="(prefers-color-scheme: light)">
+<meta name="author" content="yoonzky">
+<meta name="description" content="yoonzky on Telegram, Discord, Instagram, Spotify and Letterboxd, and Yoondoku, a sudoku site.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="yoonzky">
+<meta property="og:description" content="Telegram, Discord, Instagram, Spotify, Letterboxd and Yoondoku.">
+<meta property="og:url" content="https://yoonzky.github.io/links/">
+<meta property="og:image" content="https://yoonzky.github.io/links/icons/icon-512.png">
+<meta name="twitter:card" content="summary">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icons/icon.svg" type="image/svg+xml">
 <style>
-/* системный шрифт, сгруппированный список, синий только акцентом; сайт всегда тёмный */
 :root{
-  --f:-apple-system,BlinkMacSystemFont,'SF Pro Text','Segoe UI Variable Text','Segoe UI',system-ui,sans-serif;
-  --f-disp:-apple-system,BlinkMacSystemFont,'SF Pro Display','Segoe UI Variable Display','Segoe UI',system-ui,sans-serif;
-  color-scheme:dark;
-  --bg:#141416; --panel:#212124; --press:#2c2c2f; --line:#343438;
-  --text:#e6e6eb; --muted:#94949b; --accent:#4b9bff; --chevron:#5a5a5f;
+  --font:'Segoe UI Variable Text',system-ui,'Segoe UI',sans-serif;
+  --font-disp:'Segoe UI Variable Display',system-ui,'Segoe UI',sans-serif;
+  --r-tile:20px;
+  --bg:#eceef2; --surface:#f7f8fa;
+  --text:#272b31; --text-2:#5f6671;
+  --accent:#2866cc; --accent-ink:#1f58b3; --tint:rgba(40,102,204,.10); --tint-2:rgba(40,102,204,.2);
+  --shadow-1:0 .5px 1px rgba(25,35,55,.05),0 2px 10px rgba(25,35,55,.05);
+  --shadow-h:0 1px 2px rgba(25,35,55,.06),0 8px 24px rgba(25,35,55,.1);
 }
-*{box-sizing:border-box; -webkit-tap-highlight-color:transparent}
-html{height:100%; -webkit-text-size-adjust:100%}
-body{
-  min-height:100%; margin:0; background:var(--bg); color:var(--text);
-  font-family:var(--f); -webkit-font-smoothing:antialiased; touch-action:manipulation;
-  display:flex; align-items:center; justify-content:center;
-  padding:calc(40px + env(safe-area-inset-top)) calc(16px + env(safe-area-inset-right)) calc(32px + env(safe-area-inset-bottom)) calc(16px + env(safe-area-inset-left));
+@media (prefers-color-scheme:dark){
+  :root{
+    --bg:#131417; --surface:#1c1e22;
+    --text:#d4d7dd; --text-2:#959ba5;
+    --accent:#5f9cee; --accent-ink:#86b4f3; --tint:rgba(95,156,238,.13); --tint-2:rgba(95,156,238,.24);
+    --shadow-1:0 .5px 1px rgba(0,0,0,.3),0 2px 10px rgba(0,0,0,.2);
+    --shadow-h:0 1px 2px rgba(0,0,0,.3),0 8px 24px rgba(0,0,0,.36);
+  }
 }
-@supports (height:100dvh){ body{min-height:100dvh} }
-main{width:100%; max-width:440px}
+@media (prefers-contrast:more){
+  :root{--text-2:#4c525c}
+  @media (prefers-color-scheme:dark){ :root{--text-2:#b4b9c2} }
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+body{min-height:100vh;min-height:100dvh;display:flex;background:var(--bg);color:var(--text);font:15px/1.4 var(--font);-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;-webkit-tap-highlight-color:transparent}
+a{color:inherit;text-decoration:none}
+svg{display:block}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
 
-h1{font-family:var(--f-disp); font-size:34px; font-weight:700; letter-spacing:-.022em; line-height:1.2; margin:0 0 0 16px}
-.about{margin:2px 0 0 16px; font-size:15px; color:var(--muted)}
+main{width:100%;max-width:520px;margin:0 auto;padding:calc(44px + env(safe-area-inset-top)) calc(20px + env(safe-area-inset-right)) calc(28px + env(safe-area-inset-bottom)) calc(20px + env(safe-area-inset-left))}
+h1{font:700 34px/1.1 var(--font-disp);letter-spacing:-.026em;margin:0 0 20px}
 
-/* один список с отступами, как в «Настройках» */
-.list{display:flex; flex-direction:column; margin-top:24px; background:var(--panel); border-radius:14px; overflow:hidden}
-.big{position:relative; display:flex; align-items:center; gap:10px; min-height:48px; padding:12px 16px;
-  text-decoration:none; color:var(--text); font-size:17px; letter-spacing:-.015em; transition:background .15s}
-.big + .big::before{content:''; position:absolute; top:0; left:16px; right:0; height:.5px; background:var(--line)}
-.big .t{flex:1; min-width:0}
-.big .hd{font-size:15px; letter-spacing:-.01em; color:var(--muted)}
-.big::after{content:''; flex:none; width:7px; height:7px; margin:0 3px 0 2px;
-  border-right:2px solid var(--chevron); border-top:2px solid var(--chevron); border-radius:1px; transform:rotate(45deg)}
-@media (hover:hover){ .big:hover{background:var(--press)} }
-/* нажатие видно сразу, без перехода */
-.big:active{background:var(--press); transition:none}
-.big:focus-visible{outline:2px solid var(--accent); outline-offset:-2px; border-radius:14px}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.tile{position:relative;display:flex;flex-direction:column;gap:14px;padding:14px;background:var(--surface);border-radius:var(--r-tile);box-shadow:var(--shadow-1);transition:transform .2s ease-out,box-shadow .2s ease-out;touch-action:manipulation}
+.tile:active{transform:scale(.97);transition-duration:.1s}
+@media (hover:hover){
+  .tile:hover{transform:translateY(-2px);box-shadow:var(--shadow-h)}
+  .tile:hover:active{transform:scale(.97)}
+}
+.ic{width:36px;height:36px;border-radius:50%;background:var(--tint);color:var(--accent);display:grid;place-items:center;flex:none}
+.ic svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.ic .dot{fill:currentColor}
+.tx{display:flex;flex-direction:column;gap:2px;min-width:0}
+.tx b{font-size:16px;font-weight:600;letter-spacing:-.01em;line-height:1.25;overflow-wrap:anywhere}
+.tx small{font-size:13px;color:var(--text-2)}
 
-.meta{margin:14px 0 0 16px; font-size:13px; color:var(--muted)}
-.meta a{color:var(--accent); text-decoration:none}
-.meta a:hover{opacity:.75}
-@media (max-height:620px){ body{align-items:flex-start} }
+.wide{grid-column:1/-1;flex-direction:row;align-items:center}
+.wide .ic{width:56px;height:56px}
+.wide .ic svg{width:56px;height:56px;stroke:none}
+.wide .ic rect{fill:var(--tint-2)}
+.wide .ic rect.on{fill:var(--accent)}
+
+footer{display:flex;justify-content:center;gap:14px;margin-top:32px;font-size:13px;color:var(--text-2)}
+footer a{color:var(--accent);transition:color .12s}
+@media (hover:hover){ footer a:hover{color:var(--accent-ink)} }
+@media (pointer:coarse){ footer a{padding:13px 6px;margin:-13px -6px} }
+
+@media (min-width:720px){
+  body{align-items:center}
+  main{max-width:680px;padding-top:48px;padding-bottom:48px}
+  .grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+}
+@media (max-width:340px){
+  main{padding-left:16px;padding-right:16px}
+  .grid{gap:10px}
+  .tile{padding:12px}
+}
+@media (prefers-reduced-motion:reduce){
+  .tile,.tile:hover{transform:none;transition:box-shadow .2s}
+  .tile:active{transform:none}
+}
 </style>
 </head>
-<body>
+<body ontouchstart="">
 <main>
   <h1>yoonzky</h1>
-  <p class="about">Sudoku, music, films, messages.</p>
-
-  <nav class="list">
-    <a class="big" href="https://t.me/yoonzky" target="_blank" rel="noopener"><span class="t">Telegram</span><span class="hd">@yoonzky</span></a>
-    <a class="big" href="https://t.me/+OKa4pUcxoysxYzc6" target="_blank" rel="noopener"><span class="t">Telegram channel</span><span class="hd">invite</span></a>
-    <a class="big" href="https://www.instagram.com/younzky/" target="_blank" rel="noopener"><span class="t">Instagram</span><span class="hd">@younzky</span></a>
-    <a class="big" href="https://yoonzky.github.io/yoondoku/" target="_blank" rel="noopener"><span class="t">Yoondoku</span><span class="hd">18 kinds of sudoku</span></a>
-    <a class="big" href="https://open.spotify.com/user/wwiwbonvna6hd55g4x2gmaz5y" target="_blank" rel="noopener"><span class="t">Spotify</span><span class="hd">profile</span></a>
-    <a class="big" href="https://letterboxd.com/yoonzky/" target="_blank" rel="noopener"><span class="t">Letterboxd</span><span class="hd">@yoonzky</span></a>
-    <a class="big" href="https://discord.com/users/390727089541611530" target="_blank" rel="noopener"><span class="t">Discord</span><span class="hd">@yoonzky</span></a>
+  <nav class="grid" aria-label="Links">
+    <a class="tile wide" href="https://yoonzky.github.io/yoondoku/" target="_blank" rel="noopener"><span class="ic"><svg viewBox="0 0 512 512" aria-hidden="true"><rect class="on" x="110" y="110" width="86" height="86" rx="22"/><rect x="216" y="110" width="86" height="86" rx="22"/><rect x="322" y="110" width="86" height="86" rx="22"/><rect x="110" y="216" width="86" height="86" rx="22"/><rect class="on" x="216" y="216" width="86" height="86" rx="22"/><rect x="322" y="216" width="86" height="86" rx="22"/><rect x="110" y="322" width="86" height="86" rx="22"/><rect x="216" y="322" width="86" height="86" rx="22"/><rect class="on" x="322" y="322" width="86" height="86" rx="22"/></svg></span><span class="tx"><b>Yoondoku</b><small>18 kinds of sudoku</small></span></a>
+    <a class="tile" href="https://t.me/yoonzky" target="_blank" rel="noopener"><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 4.5 3.5 11.2l5.8 2.2 2.2 6.1 3.2-4.1 4.6 3.4z"/><path d="m9.3 13.4 11.2-8.9"/></svg></span><span class="tx"><b>Telegram</b><small>@yoonzky</small></span></a>
+    <a class="tile" href="https://discord.com/users/390727089541611530" target="_blank" rel="noopener"><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 14.5V12a8 8 0 0 1 16 0v2.5"/><rect x="3.5" y="13.5" width="4" height="6" rx="1.6"/><rect x="16.5" y="13.5" width="4" height="6" rx="1.6"/></svg></span><span class="tx"><b>Discord</b><small>@yoonzky</small></span></a>
+    <a class="tile" href="https://www.instagram.com/younzky/" target="_blank" rel="noopener"><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r=".6" class="dot"/></svg></span><span class="tx"><b>Instagram</b><small>@younzky</small></span></a>
+    <a class="tile" href="https://t.me/+OKa4pUcxoysxYzc6" target="_blank" rel="noopener"><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="3.5" width="16" height="17" rx="3.5"/><path d="M8 8.5h8M8 12h8M8 15.5h5"/></svg></span><span class="tx"><b>Channel</b><small>Telegram</small></span></a>
+    <a class="tile" href="https://open.spotify.com/user/wwiwbonvna6hd55g4x2gmaz5y" target="_blank" rel="noopener"><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 8.6Q12 5.6 20 9.6M5.2 12.6Q12 10.4 18.6 13.4M6.6 16.4Q12 14.8 17 17.2"/></svg></span><span class="tx"><b>Spotify</b><small>profile</small></span></a>
+    <a class="tile" href="https://letterboxd.com/yoonzky/" target="_blank" rel="noopener"><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="5" width="17" height="14" rx="3"/><path d="M8 5v14M16 5v14M3.5 12H8M16 12h4.5"/></svg></span><span class="tx"><b>Letterboxd</b><small>@yoonzky</small></span></a>
   </nav>
-  <p class="meta">2026 · <a href="https://github.com/yoonzky/links" target="_blank" rel="noopener">source</a></p>
+  <footer><span>&copy; 2026 yoonzky</span><a href="https://github.com/yoonzky/links" target="_blank" rel="noopener">GitHub</a></footer>
 </main>
 </body>
 </html>

@@ -1,10 +1,10 @@
 # links
 
-Personal links page: Telegram, Instagram, Yoondoku, Spotify, Letterboxd, Discord.
+Personal links page: Yoondoku, Telegram, Discord, Instagram, Telegram channel, Spotify, Letterboxd.
 
 [yoonzky.github.io/links](https://yoonzky.github.io/links/)
 
-A single `index.html` with inline CSS, no scripts and no external files. Uses the system typeface and a dark theme.
+A single `index.html` with inline CSS, no scripts and no external files. System typeface, light and dark theme follow the system.
 
 ## License
 
