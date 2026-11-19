@@ -65,12 +65,13 @@ h1{font:700 34px/1.1 var(--font-disp);letter-spacing:-.026em;margin:0 0 20px}
 .tx b{font-size:16px;font-weight:600;letter-spacing:-.01em;line-height:1.25;overflow-wrap:anywhere}
 .tx small{font-size:13px;color:var(--text-2)}
 
-.wide{grid-column:1/-1;flex-direction:row;align-items:center}
-.wide .ic{width:56px;height:56px}
-.wide .ic svg{width:56px;height:56px;stroke:none}
-.wide .ic rect{fill:var(--tint-2)}
-.wide .ic rect.on{fill:var(--accent)}
-.wide .ic text{fill:var(--accent)}
+.apps{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-bottom:12px}
+.app .ic{width:48px;height:48px}
+.app .ic svg{width:48px;height:48px;stroke:none}
+.app .ic .off{fill:var(--tint-2)}
+.app .ic .on{fill:var(--accent)}
+.app .tx b{font-size:17px}
+.apps+.grid{margin-top:0}
 
 footer{display:flex;justify-content:center;gap:14px;margin-top:32px;font-size:13px;color:var(--text-2)}
 
@@ -78,6 +79,9 @@ footer{display:flex;justify-content:center;gap:14px;margin-top:32px;font-size:13
   body{align-items:center}
   main{max-width:680px;padding-top:48px;padding-bottom:48px}
   .grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .apps{margin-bottom:12px}
+  .app{flex-direction:row;align-items:center;gap:16px;padding:16px}
+  .app .ic,.app .ic svg{width:60px;height:60px}
 }
 @media (max-width:340px){
   main{padding-left:16px;padding-right:16px}
@@ -93,9 +97,11 @@ footer{display:flex;justify-content:center;gap:14px;margin-top:32px;font-size:13
 <body ontouchstart="">
 <main>
   <h1>Yoonzky</h1>
+  <nav class="apps" aria-label="Projects">
+    <a class="tile app" href="https://yoonzky.github.io/yoondoku/" target="_blank" rel="noopener"><span class="ic"><svg viewBox="0 0 512 512" aria-hidden="true"><rect class="on" x="110" y="110" width="86" height="86" rx="22"/><rect class="off" x="216" y="110" width="86" height="86" rx="22"/><rect class="off" x="322" y="110" width="86" height="86" rx="22"/><rect class="off" x="110" y="216" width="86" height="86" rx="22"/><rect class="on" x="216" y="216" width="86" height="86" rx="22"/><rect class="off" x="322" y="216" width="86" height="86" rx="22"/><rect class="off" x="110" y="322" width="86" height="86" rx="22"/><rect class="off" x="216" y="322" width="86" height="86" rx="22"/><rect class="on" x="322" y="322" width="86" height="86" rx="22"/></svg></span><span class="tx"><b>Yoondoku</b><small>18 kinds of sudoku</small></span></a>
+    <a class="tile app" href="https://yoonzky.github.io/yoongo/" target="_blank" rel="noopener"><span class="ic"><svg viewBox="0 0 512 512" aria-hidden="true"><circle class="on" cx="256" cy="145" r="50"/><circle class="on" cx="145" cy="256" r="50"/><circle class="off" cx="256" cy="256" r="50"/><circle class="on" cx="367" cy="256" r="50"/><circle class="on" cx="256" cy="367" r="50"/></svg></span><span class="tx"><b>Yoongo</b><small>play and solve go</small></span></a>
+  </nav>
   <nav class="grid" aria-label="Links">
-    <a class="tile wide" href="https://yoonzky.github.io/yoondoku/" target="_blank" rel="noopener"><span class="ic"><svg viewBox="0 0 512 512" aria-hidden="true"><rect class="on" x="110" y="110" width="86" height="86" rx="22"/><rect x="216" y="110" width="86" height="86" rx="22"/><rect x="322" y="110" width="86" height="86" rx="22"/><rect x="110" y="216" width="86" height="86" rx="22"/><rect class="on" x="216" y="216" width="86" height="86" rx="22"/><rect x="322" y="216" width="86" height="86" rx="22"/><rect x="110" y="322" width="86" height="86" rx="22"/><rect x="216" y="322" width="86" height="86" rx="22"/><rect class="on" x="322" y="322" width="86" height="86" rx="22"/></svg></span><span class="tx"><b>Yoondoku</b><small>18 kinds of sudoku</small></span></a>
-    <a class="tile wide" href="https://yoonzky.github.io/yoongo/" target="_blank" rel="noopener"><span class="ic"><svg viewBox="0 0 512 512" aria-hidden="true"><text x="256" y="314" text-anchor="middle" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-weight="700" font-size="220" letter-spacing="-10">go</text></svg></span><span class="tx"><b>Yoongo</b><small>go against a bot, 2284 problems</small></span></a>
     <a class="tile" href="https://t.me/yoonzky" target="_blank" rel="noopener"><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19.3 4.7 2.3 11.4l5.8 2.2 2.2 6.1 3.2-4.1 4.6 3.4z"/><path d="m8.1 13.6 11.2-8.9"/></svg></span><span class="tx"><b>Telegram</b><small>@yoonzky</small></span></a>
     <a class="tile" href="https://t.me/+OKa4pUcxoysxYzc6" target="_blank" rel="noopener"><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="3.5" width="16" height="17" rx="3.5"/><path d="M8 8.5h8M8 12h8M8 15.5h5"/></svg></span><span class="tx"><b>Channel</b><small>Telegram</small></span></a>
     <a class="tile" href="https://www.instagram.com/younzky/" target="_blank" rel="noopener"><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r=".6" class="dot"/></svg></span><span class="tx"><b>Instagram</b><small>@younzky</small></span></a>
