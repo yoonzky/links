@@ -1,6 +1,6 @@
 # links
 
-Personal links page: Yoondoku, Telegram, Discord, Instagram, Telegram channel, Spotify, Letterboxd.
+Personal links page: Yoondoku, Yoongo, Telegram, Discord, Instagram, Telegram channel, Spotify, Letterboxd.
 
 [yoonzky.github.io/links](https://yoonzky.github.io/links/)
 
